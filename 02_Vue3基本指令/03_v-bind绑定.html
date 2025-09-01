@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :active {
+      color: red;
+    }
+  </style>
+</head>
+<script src="../js/vue.js"></script>
+
+<body>
+  <div id="app"></div>
+
+  <template id="my-app">
+    <!-- 1. class 绑定对象语法 -->
+    <div :class="{'active': isActive }">哈哈</div>
+    <button @click="toggle">切换</button>
+    <!-- 2. class 绑定数组语法 -->
+    <div :class="['title:message']"></div>
+    <hr>
+    <!-- 3. style 绑定对象语法 -->
+    <div :style="styleObj">呵呵</div>
+    <!-- 4. style 绑定数组语法 -->
+    <div :style="[styleObj]">嘿嘿</div>
+  </template>
+
+</body>
+
+<script>
+  const App = {
+    template: '#my-app',
+    data() {
+      return {
+        message: 'hello vue3!',
+        isActive: true,
+        styleObj: {
+          color: 'red',
+          fontSize: '30px'
+        },
+        color: 'green',
+        fontSize: '60px'
+      }
+    },
+    methods: {
+      toggle() {
+        this.isActive = !this.isActive
+      }
+    },
+  }
+
+  Vue.createApp(App).mount('#app')
+
+</script>
+
+
+</html>
