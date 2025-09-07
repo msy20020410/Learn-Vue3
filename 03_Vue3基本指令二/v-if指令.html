@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script src="../js/vue.js"></script>
+
+
+<body>
+  <div id="app"></div>
+
+  <template id="my-app">
+    <div>
+      请输入您的成绩: <input type="text" v-model="score"><br>
+      您的成绩情况为: 
+      <h2 v-if="score > 90">优秀</h2>
+      <h2 v-else-if="score > 60">良好</h2>
+      <h2 v-else >差</h2>
+    </div>
+  </template>
+
+</body>
+
+<script>
+  const App = {
+    template: '#my-app',
+    data() {
+      return {
+        message: 'hello vue3!',
+        score: 100
+      }
+    }
+  }
+
+  Vue.createApp(App).mount('#app')
+
+</script>
+
+
+</html>
