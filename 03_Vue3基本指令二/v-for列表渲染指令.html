@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<script src="../js/vue.js"></script>
+
+
+<body>
+  <div id="app"></div>
+
+  <template id="my-app">
+    <div>
+      <!-- 遍历数组 -->
+      <ul v-for="(item,index) in hobbys">
+        <li>{{index}}-{{item}}</li>
+      </ul>
+      <!-- 遍历对象 -->
+      <ul v-for="(value,key,index) in info">
+        <li>{{index}}-{{key}}:{{value}}</li>
+      </ul>
+      <!-- 遍历数字 -->
+      <ul v-for="(num,index) in 10">
+        <li>{{index}}-{{num}}</li>
+      </ul>
+    </div>
+  </template>
+
+</body>
+
+<script>
+  const App = {
+    template: '#my-app',
+    data() {
+      return {
+        message: 'hello vue3!',
+        hobbys: [
+          "吃",
+          "喝",
+          "玩"
+        ],
+        info: {
+          name: "张三",
+          age: 18,
+          height: 1.76
+        }
+      }
+    }
+  }
+
+  Vue.createApp(App).mount('#app')
+
+</script>
+
+
+</html>
